@@ -1,0 +1,19 @@
+.castInfo {
+}
+.castInfoHead {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.castList {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.castItem {
+  width: calc((100% - 40px) / 5);
+  border: 1px solid blue;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

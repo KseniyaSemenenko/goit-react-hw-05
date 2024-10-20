@@ -1,0 +1,22 @@
+.searchContainer {
+}
+.searchForm {
+  display: flex;
+  gap: 10px;
+}
+.searchInput {
+  padding: 5px 10px;
+  outline: transparent;
+  border-radius: 5px;
+  border: 1px solid blue;
+}
+.searchBtn {
+  background-color: blue;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+.searchBtn:hover {
+  background-color: rgb(105, 105, 228);
+}

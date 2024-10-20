@@ -1,0 +1,39 @@
+.movies {
+}
+.btnGoBack {
+  margin-bottom: 20px;
+  background-color: blue;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+}
+.btnGoBack:hover {
+  background-color: rgb(105, 105, 228);
+}
+.moviesDetails {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.moviesDetailsText {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px;
+}
+.moviesImg {
+}
+.moviesName {
+}
+.moviesText {
+}
+.moviesTextAbout {
+}
+.listInfo {
+  padding: 15px;
+  font-size: 18px;
+}
+.listInfoItem:hover {
+  text-decoration: underline;
+}

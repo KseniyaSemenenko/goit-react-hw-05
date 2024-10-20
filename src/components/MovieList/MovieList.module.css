@@ -1,0 +1,10 @@
+.moviesList {
+  font-size: 16px;
+  padding-left: 30px;
+}
+.movieItem {
+  margin-top: 10px;
+}
+.movieItem:hover {
+  text-decoration: underline;
+}
