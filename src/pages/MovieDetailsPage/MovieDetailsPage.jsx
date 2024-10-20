@@ -6,6 +6,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
+import { useRef } from 'react';
 
 export default function MovieDetailsPage({
   getProductById,
@@ -26,10 +27,10 @@ export default function MovieDetailsPage({
     })
     .filter(Boolean);
 
-  const goBack = () => navigate(location.state?.from || '/movies');
+  const goBack = useRef(location.state?.from || '/movies');
   return (
     <div className={css.movies}>
-      <button className={css.btnGoBack} onClick={goBack} type="submit">
+      <button className={css.btnGoBack} onClick={() => navigate(goBack.current)} type="submit">
         Go back
       </button>
       <div className={css.moviesDetails}>
@@ -59,16 +60,17 @@ export default function MovieDetailsPage({
       <ul className={css.listInfo}>
         <li className={css.listInfoItem}>
           <Link
-            state={{ from: location.state.from }}
-            to={`/movies/${movieId}/cast`}
+            // state={{ from: location.state.from }}
+            to={`cast`}
           >
             Cast
           </Link>
         </li>
         <li className={css.listInfoItem}>
           <Link
-            state={{ from: location.state.from }}
-            to={`/movies/${movieId}/reviews`}
+            // state={{ from: location.state.from }}
+            // to={`/movies/${movieId}/reviews`}
+             to={`reviews`}
           >
             Reviews
           </Link>
