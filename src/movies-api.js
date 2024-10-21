@@ -17,13 +17,6 @@ export const trendingMovies = async () => {
     results: data.results,
   };
 };
-export const moviesGenre = async () => {
-  const { data } = await movieInstance.get('/genre/movie/list', options);
-
-  return {
-    genres: data.genres,
-  };
-};
 
 export const searchMovie = async searchValue => {
   if (!searchValue) return { movie: [] };
@@ -33,9 +26,16 @@ export const searchMovie = async searchValue => {
     params: { query: searchValue },
   });
   return {
-    movie: data.results,
+    movies: data.results,
   };
 };
+export const movieForId = async movieId => {
+  const { data } = await movieInstance.get(`/movie/${movieId}`, options);
+  console.log(data);
+  
+  return data;
+};
+
 export const movieCast = async movieId => {
   const { data } = await movieInstance.get(
     `/movie/${movieId}/credits`,

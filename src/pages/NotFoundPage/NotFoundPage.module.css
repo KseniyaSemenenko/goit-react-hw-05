@@ -1,0 +1,18 @@
+.notFountText {
+  text-align: center;
+  font-size: 25px;
+  color: blue;
+}
+
+.notFountBtn {
+  display: block;
+  background-color: blue;
+  border: 1px solid transparent;
+  border-radius: 5px;
+  color: white;
+  font-size: 16px;
+  margin: 10px auto;
+}
+.notFountBtn:hover {
+  background-color: rgb(105, 105, 228);
+}

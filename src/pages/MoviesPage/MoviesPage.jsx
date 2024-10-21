@@ -4,7 +4,7 @@ import SearchForm from '../../components/SearchForm/SearchForm';
 import { useEffect, useState } from 'react';
 import { searchMovie } from '../../movies-api';
 
-export default function MoviesPage({ onSearch }) {
+export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,13 +12,17 @@ export default function MoviesPage({ onSearch }) {
   const location = useLocation();
 
   const query = searchParams.get('query') || '';
-
+  
+  const onSearch = movies => {
+    setMovies(movies);
+  };
+  
   const handleSubmit = event => {
     event.preventDefault();
     const form = event.target;
     const inputValue = form.search.value.trim();
     if (inputValue === '') {
-      alert('Input search term');
+      alert('Enter a search word!');
       return;
     }
     setSearchParams({ query: inputValue });
@@ -32,9 +36,9 @@ export default function MoviesPage({ onSearch }) {
       setError(null);
       try {
         if (query) {
-          const { movie } = await searchMovie(query);
-          setMovies(movie);
-          onSearch(movie);
+          const { movies } = await searchMovie(query);
+          setMovies(movies);
+          onSearch(movies);
         } else {
           setMovies([]);
         }
@@ -55,7 +59,7 @@ export default function MoviesPage({ onSearch }) {
   return (
     <div>
       <SearchForm handleSubmit={handleSubmit} />
-      <MovieList movies={movies} location={location} />
+      {query && movies.length === 0 ? (<p>Movie not found</p>) : (<MovieList movies={movies} location={location}/>)} 
     </div>
   );
 }

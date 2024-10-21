@@ -29,7 +29,7 @@ const MovieReviews = () => {
     if (error) return <p>Error: {error}</p>;
 
     return (
-        <div className={css.reviews}>
+        <div>
             <h3 className={css.reviewsHead}>Reviews</h3>
             <ul className={css.reviewsList}>
                 {reviews.length > 0 ? (

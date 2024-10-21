@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import css from "./NotFoundPage.module.css"
 
 export default function NotFoundPage() {
     return (
         <div>
-            <p>Sorry, this page is not found...</p>
-            <Link to="/">Go Home</Link>
+            <p className={css.notFountText}>Sorry, this page is not found...</p>
+            <button className={css.notFountBtn} type="button" ><Link to="/">Go Home</Link></button>
         </div>
     )
 }

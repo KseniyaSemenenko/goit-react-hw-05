@@ -1,7 +1,7 @@
 import css from './SearchForm.module.css'
 export default function SearchForm({ handleSubmit }) {
   return (
-    <div className={css.searchContainer}>
+    <div>
       <form className={css.searchForm} onSubmit={handleSubmit}>
         <input
           className={css.searchInput}
