@@ -6,11 +6,13 @@ import css from './MovieCast.module.css'
 const MovieCast = ({defaultImg}) => {
     const { movieId } = useParams();
     const [cast, setCast] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
 
     useEffect(() => {
         const getCast = async () => {
+            setLoading(true);
+      setError(null);
             try {
                 const { cast } = await movieCast(movieId);
                 setCast(cast);

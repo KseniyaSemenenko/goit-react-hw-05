@@ -6,7 +6,7 @@ import {
   useParams,
 } from 'react-router-dom';
 import css from './MovieDetailsPage.module.css';
-import { useRef } from 'react';
+import { Suspense, useRef } from 'react';
 import { useEffect, useState } from 'react';
 import { movieForId} from '../../movies-api';
 
@@ -15,7 +15,7 @@ export default function MovieDetailsPage({ defaultImg }) {
   const navigate = useNavigate();
   const location = useLocation();
   const [movie, setMovie] = useState();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -83,7 +83,9 @@ export default function MovieDetailsPage({ defaultImg }) {
           <Link to={`reviews`}>Reviews</Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 }

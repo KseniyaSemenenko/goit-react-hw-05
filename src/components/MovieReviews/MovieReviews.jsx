@@ -7,12 +7,14 @@ import css from './MovieReviews.module.css'
 const MovieReviews = () => {
     const { movieId } = useParams();
     const [reviews, setReviews] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [moreText, setMoreText] = useState(false);
 
     useEffect(() => {
         const getReviews = async () => {
+            setLoading(true);
+      setError(null);
             try {
                 const { reviews } = await movieReviews(movieId);
                 setReviews(reviews);

@@ -7,7 +7,7 @@ import { searchMovie } from '../../movies-api';
 export default function MoviesPage() {
   const [searchParams, setSearchParams] = useSearchParams();
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const location = useLocation();
 

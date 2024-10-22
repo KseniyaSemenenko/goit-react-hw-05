@@ -5,7 +5,7 @@ import css from './HomePage.module.css';
 
 export default function HomePage() {
   const [movies, setMovies] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
